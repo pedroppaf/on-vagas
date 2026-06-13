@@ -1,7 +1,7 @@
-package br.com.pedroppaf.onvagas.modules.candidate.controllers;
+package br.com.pedroppaf.onvagas.modules.candidate.controller;
 
-import br.com.pedroppaf.onvagas.modules.candidate.CandidateEntity;
-import br.com.pedroppaf.onvagas.modules.candidate.services.CandidateService;
+import br.com.pedroppaf.onvagas.modules.candidate.entity.CandidateEntity;
+import br.com.pedroppaf.onvagas.modules.candidate.service.CandidateService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
