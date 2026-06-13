@@ -1,4 +1,4 @@
-package br.com.pedroppaf.onvagas.modules.candidate;
+package br.com.pedroppaf.onvagas.modules.company.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,15 +13,13 @@ import org.hibernate.validator.constraints.Length;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity(name = "companies")
 @Data
-@Entity(name = "cadidate")
-public class CandidateEntity {
+public class CompanyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
-    private String name;
 
     @NotBlank
     @Pattern(regexp = "\\S+", message = "O campo [username] não deve conter espaço")
@@ -33,9 +31,11 @@ public class CandidateEntity {
     @Length(min = 10, max = 100, message = "A senha deve conter entre 10 e 100 caracteres")
     private String password;
 
-    private String description;
+    private String website;
 
-    private String curriculum;
+    private String name;
+
+    private String description;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

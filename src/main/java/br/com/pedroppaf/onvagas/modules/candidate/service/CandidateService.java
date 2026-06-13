@@ -1,8 +1,8 @@
-package br.com.pedroppaf.onvagas.modules.candidate.services;
+package br.com.pedroppaf.onvagas.modules.candidate.service;
 
 import br.com.pedroppaf.onvagas.exceptions.UserFoundException;
-import br.com.pedroppaf.onvagas.modules.candidate.CandidateEntity;
-import br.com.pedroppaf.onvagas.modules.candidate.CandidateRepository;
+import br.com.pedroppaf.onvagas.modules.candidate.entity.CandidateEntity;
+import br.com.pedroppaf.onvagas.modules.candidate.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
