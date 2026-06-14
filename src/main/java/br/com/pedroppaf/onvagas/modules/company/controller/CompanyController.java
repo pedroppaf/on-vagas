@@ -2,6 +2,7 @@ package br.com.pedroppaf.onvagas.modules.company.controller;
 
 import br.com.pedroppaf.onvagas.modules.company.entity.CompanyEntity;
 import br.com.pedroppaf.onvagas.modules.company.service.CreateCompanyService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class CompanyController {
     private CreateCompanyService companyService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> create(@RequestBody CompanyEntity companyEntity){
+    public ResponseEntity<Object> create(@Valid @RequestBody CompanyEntity companyEntity){
         try {
             var result = this.companyService.execute(companyEntity);
             return ResponseEntity.ok().body(result);
