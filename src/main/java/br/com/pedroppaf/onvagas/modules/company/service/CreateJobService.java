@@ -13,6 +13,5 @@ public class CreateJobService {
 
     public JobEntity execute(JobEntity jobEntity) {
         return this.jobRepository.save(jobEntity);
-
     }
 }
