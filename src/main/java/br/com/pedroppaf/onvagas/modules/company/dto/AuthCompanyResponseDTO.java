@@ -1,4 +1,4 @@
-package br.com.pedroppaf.onvagas.modules.candidate.dto;
+package br.com.pedroppaf.onvagas.modules.company.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class AuthCandidateResponseDTO {
+@NoArgsConstructor
+public class AuthCompanyResponseDTO {
 
     private String access_token;
     private Long expires_in;
