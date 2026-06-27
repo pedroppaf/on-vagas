@@ -2,6 +2,7 @@ package br.com.pedroppaf.onvagas.modules.candidate.service;
 
 import br.com.pedroppaf.onvagas.exceptions.JobNotFoundException;
 import br.com.pedroppaf.onvagas.exceptions.UserNotFoundException;
+import br.com.pedroppaf.onvagas.modules.candidate.entity.ApplyJobEntity;
 import br.com.pedroppaf.onvagas.modules.candidate.repository.ApplyJobRepository;
 import br.com.pedroppaf.onvagas.modules.candidate.repository.CandidateRepository;
 import br.com.pedroppaf.onvagas.modules.company.repository.JobRepository;
@@ -22,7 +23,7 @@ public class ApplyJobCandidateService {
     @Autowired
     private ApplyJobRepository applyJobRepository;
 
-    public void execute(UUID idCandidate, UUID idJob){
+    public ApplyJobEntity execute(UUID idCandidate, UUID idJob){
         this.candidateRepository.findById(idCandidate)
                 .orElseThrow(() -> {throw new UserNotFoundException();
                 });
@@ -31,5 +32,8 @@ public class ApplyJobCandidateService {
                 .orElseThrow(() -> {throw new JobNotFoundException();
                 });
 
+        var applyJob = ApplyJobEntity.builder().candidateId(idCandidate).jobId(idJob).build();
+        applyJob = applyJobRepository.save(applyJob);
+        return applyJob;
     }
 }
