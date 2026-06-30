@@ -1,9 +1,9 @@
 package br.com.pedroppaf.onvagas.modules.candidate.service;
 
+import br.com.pedroppaf.onvagas.exceptions.UserNotFoundException;
 import br.com.pedroppaf.onvagas.modules.candidate.dto.ProfileCandidateResponseDTO;
 import br.com.pedroppaf.onvagas.modules.candidate.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.UUID;
 
@@ -15,7 +15,9 @@ public class ProfileCandidateService {
 
     public ProfileCandidateResponseDTO execute(UUID idCandidate){
         var candidate = this.candidateRepository.findById(idCandidate)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() -> {
+                    throw new UserNotFoundException();
+                        });
 
         var candidateDTO = ProfileCandidateResponseDTO.builder()
                 .description(candidate.getDescription())
